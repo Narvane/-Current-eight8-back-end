@@ -1,0 +1,27 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 300749487147-v4ktdsrtpcg0dgmmv2ogf6souqhsojvh.apps.googleusercontent.com
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope:
+              - email
+              - profile
+
+  data:
+    mongodb:
+      auto-index-creation: true
+      authentication-database: admin
+      database: eightg
+      port: 27017
+      host: localhost
+
+app:
+  tokenSecret: ${TOKEN_SECRET}
+  tokenExpirationMsec: 864000000
+  authorizedRedirectUris:
+    - http://localhost:3000/oauth2/redirect
+
